@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "Plus Jakarta Sans";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.75rem;
+
+    --background: 1 0 0;
+    --foreground: 0.16 0.015 280;
+    --card: 1 0 0;
+    --card-foreground: 0.16 0.015 280;
+    --popover: 1.0 0 280;
+    --popover-foreground: 0.16 0.015 280;
+
+    --primary: 0.55 0.22 270;
+    --primary-foreground: 0.98 0.008 280;
+
+    --secondary: 0.92 0.012 280;
+    --secondary-foreground: 0.25 0.015 280;
+    --muted: 0.94 0.008 280;
+    --muted-foreground: 0.52 0.01 280;
+
+    --accent: 0.65 0.25 300;
+    --accent-foreground: 0.98 0.008 300;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.008 25;
+
+    --border: 0.88 0.01 280;
+    --input: 0.88 0.01 280;
+    --ring: 0.55 0.22 270;
+
+    --chart-1: 0.65 0.25 300;
+    --chart-2: 0.58 0.18 190;
+    --chart-3: 0.52 0.15 150;
+    --chart-4: 0.62 0.2 50;
+    --chart-5: 0.48 0.16 40;
+
+    --sidebar: 0.96 0.01 280;
+    --sidebar-foreground: 0.16 0.015 280;
+    --sidebar-primary: 0.55 0.22 270;
+    --sidebar-primary-foreground: 0.98 0.008 280;
+    --sidebar-accent: 0.92 0.012 280;
+    --sidebar-accent-foreground: 0.3 0.015 280;
+    --sidebar-border: 0.88 0.01 280;
+    --sidebar-ring: 0.55 0.22 270;
+  }
+
+  .dark {
+    --background: 0.14 0.02 280;
+    --foreground: 0.95 0.01 280;
+    --card: 0.18 0.025 280;
+    --card-foreground: 0.95 0.01 280;
+    --popover: 0.22 0.025 280;
+    --popover-foreground: 0.95 0.01 280;
+
+    --primary: 0.7 0.22 300;
+    --primary-foreground: 0.12 0.02 280;
+
+    --secondary: 0.24 0.03 280;
+    --secondary-foreground: 0.85 0.01 280;
+    --muted: 0.22 0.025 280;
+    --muted-foreground: 0.58 0.015 280;
+
+    --accent: 0.75 0.25 300;
+    --accent-foreground: 0.12 0.02 280;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.95 0.01 22;
+
+    --border: 0.28 0.025 280;
+    --input: 0.28 0.025 280;
+    --ring: 0.7 0.22 300;
+
+    --chart-1: 0.75 0.25 300;
+    --chart-2: 0.68 0.2 190;
+    --chart-3: 0.62 0.18 150;
+    --chart-4: 0.7 0.22 50;
+    --chart-5: 0.58 0.18 40;
+
+    --sidebar: 0.18 0.02 280;
+    --sidebar-foreground: 0.95 0.01 280;
+    --sidebar-primary: 0.7 0.22 300;
+    --sidebar-primary-foreground: 0.12 0.02 280;
+    --sidebar-accent: 0.28 0.03 280;
+    --sidebar-accent-foreground: 0.8 0.01 280;
+    --sidebar-border: 0.28 0.025 280;
+    --sidebar-ring: 0.7 0.22 300;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gozuEnLHPWqVA.woff2")
+    format("woff2");
+  font-display: swap;
+  font-weight: 300 700;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KU7NSg.woff2")
+    format("woff2");
+  font-display: swap;
+  font-weight: 300 800;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+  }
+  .font-body {
+    font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), "JetBrains Mono", monospace;
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.22 270),
+      oklch(0.65 0.28 300),
+      oklch(0.72 0.24 320)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .dark .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.22 270),
+      oklch(0.78 0.28 300),
+      oklch(0.82 0.22 320)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .card-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: oklch(var(--card) / 0.6);
+    border: 1px solid oklch(var(--border) / 0.4);
+    border-radius: var(--radius);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 20px 60px -10px oklch(0.55 0.22 270 / 0.15), 0 8px 20px -4px
+      oklch(0 0 0 / 0.12);
+  }
+
+  .dark .shadow-elevated {
+    box-shadow: 0 20px 60px -10px oklch(0.7 0.22 300 / 0.2), 0 8px 20px -4px
+      oklch(0 0 0 / 0.4);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 2px 12px -2px oklch(0 0 0 / 0.08);
+  }
+
+  .dark .shadow-subtle {
+    box-shadow: 0 2px 12px -2px oklch(0 0 0 / 0.3);
+  }
+
+  .hover-lift {
+    @apply transition-smooth cursor-pointer;
+    &:hover {
+      transform: translateY(-4px);
+      @apply shadow-elevated;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      oklch(0.55 0.22 270 / 0.15),
+      transparent
+    );
+  }
+
+  .dark .hero-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      oklch(0.7 0.22 300 / 0.25),
+      transparent
+    );
+  }
+
+  .badge-category {
+    @apply text-xs font-semibold font-display uppercase tracking-wider px-3 py-1 rounded-full;
+    background: oklch(0.55 0.22 270 / 0.12);
+    color: oklch(0.45 0.22 270);
+    border: 1px solid oklch(0.55 0.22 270 / 0.2);
+  }
+
+  .dark .badge-category {
+    background: oklch(0.7 0.22 300 / 0.15);
+    color: oklch(0.8 0.22 300);
+    border: 1px solid oklch(0.7 0.22 300 / 0.25);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
